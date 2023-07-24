@@ -1,0 +1,14 @@
+[package]
+authors = ["Ismet Handzic"]
+edition = "2021"
+name = "bioread"
+readme = "README.md"
+version = "0.1.0"
+
+[dependencies]
+clap = { version = "4.3", features = ["derive"] }
+color-eyre = "0.6"  # for better error messages
+colored = "2.0"  # for colored string output
+env_logger = "0.10"  # for logging to stdout, needed by log
+log = "0.4"  # for message logging
+crossterm = "0.25"
