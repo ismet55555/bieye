@@ -1,9 +1,13 @@
 use colored::Colorize;
-use crossterm::terminal;
 use log::debug;
 use regex::Regex;
 
-// FIXME: Should I use HashMap for bioreader options?
+// BioReader regex patterns
+const REGEX_PUNCTUATION: &str = r"^[\W_]+$";
+const REGEX_NUMBER: &str = r"^\d+$";
+const REGEX_CONTRACTION: &str = r"^\w+'\w+$";
+const REGEX_LESS_THAN_THREE: &str = r"^\w{1,2}$";
+const REGEX_THREE_LETTER_WORD: &str = r"^\w{3}$";
 
 /// This struct handles all BioReader related functions
 #[derive(Debug)]
@@ -31,31 +35,27 @@ impl Default for BioReader {
 
 impl BioReader {
     /// Print the original text
-    pub fn print_original(&self) {
-        println!("{}", self.text_input);
-    }
+    // pub fn print_original(&self) {
+    //     println!("{}", self.text_input);
+    // }
 
     /// Print the processed text
     pub fn print_processed(&self) {
-        terminal::Clear(terminal::ClearType::All);
         println!("{}", self.text_output);
     }
 
-    // /// Style text depending on options passed
-    // /// **TODO**: Add color, dimmed, underline, etc
-    // fn color_word(&self, word: String) -> String {
-    //     let word_processed = word.bold();
-    //     word_processed.to_string()
-    // }
-
-    /// Check if word matches a regex pattern
-    fn check_word_match(&self, regex_pattern: &str, word: &str) -> bool {
-        let re_word = Regex::new(regex_pattern).unwrap();
-        re_word.is_match(word)
-    }
-
     /// Apply bold text to the text
+    /// TODO: Optomize this function! -
     pub fn process_text(&mut self) -> &Self {
+        // Compile regex patterns
+        let regex_whitespace: Regex = Regex::new(r"^[\s]+$").unwrap();
+        let regex_punctuation: Regex = Regex::new(REGEX_PUNCTUATION).unwrap();
+        let regex_number: Regex = Regex::new(REGEX_NUMBER).unwrap();
+        let regex_contraction: Regex = Regex::new(REGEX_CONTRACTION).unwrap();
+        let regex_less_than_three: Regex = Regex::new(REGEX_LESS_THAN_THREE).unwrap();
+        let regex_three_letter_word: Regex = Regex::new(REGEX_THREE_LETTER_WORD).unwrap();
+
+        // Regex pattern to divide text into words
         let re_words = Regex::new(r"\w+|[^\w]|[\s]").unwrap();
 
         // Divided input text into words
@@ -68,78 +68,62 @@ impl BioReader {
 
         debug!("Processing {} words ...", words.len());
         for word in words {
+            let word_processed = match word {
 
-            // Whitespace
-            if self.check_word_match(r"^[\s]+$", word) {
-                let word_processed = word.to_string();
-                debug!("[Whitespace]");
-                words_processed.push(word_processed);
-                continue;
-            }
+                word if regex_whitespace.is_match(word) => {
+                    debug!("[Whitespace]");
+                    word.normal()
+                }
 
-            // Word is punctuation
-            if self.check_word_match(r"^[\W_]+$", word) {
-                let word_processed = word.to_string();
-                debug!("{} -> {} [Punctuation]", word, word_processed);
-                words_processed.push(word_processed);
-                continue;
-            }
+                word if regex_punctuation.is_match(word) => {
+                    debug!("{} -> {} [Punctuation]", word, word);
+                    word.normal()
+                }
 
-            // Word is a number
-            if self.check_word_match(r"^\d+$", word) {
-                let word_processed = word.bold().to_string();
-                debug!("{} -> {} [Number]", word, word_processed);
-                words_processed.push(word_processed);
-                continue;
-            }
+                word if regex_number.is_match(word) => {
+                    debug!("{} -> {} [Number]", word, word.bold());
+                    word.bold()
+                }
 
-            // Word is a contraction
-            // NOTE: Think about splitting this in first and second part
-            if self.check_word_match(r"^\w+'\w+$", word) {
-                let word_processed = word.bold().to_string();
-                debug!("{} -> {} [Contraction]", word, word_processed);
-                words_processed.push(word_processed);
-                continue;
-            }
+                word if regex_contraction.is_match(word) => {
+                    debug!("{} -> {} [Contraction]", word, word.bold());
+                    word.bold()
+                }
 
-            // Word with less than three letters
-            if self.check_word_match(r"^\w{1,2}$", word) {
-                let word_processed = word.bold().to_string();
-                debug!("{} -> {} [Less than 3 letters]", word, word_processed);
-                words_processed.push(word_processed);
-                continue;
-            }
+                word if regex_less_than_three.is_match(word) => {
+                    debug!("{} -> {} [Less than 3 letters]", word, word.bold());
+                    word.bold()
+                }
 
-            // Word is 3 letter word
-            if self.check_word_match(r"^\w{3}$", word) {
-                let first_half = &word[..2].to_string();
-                let second_half = &word[2..].to_string();
-                let word_processed = format!("{}{}", first_half.bold(), second_half);
-                debug!("{} -> {} [3-Letter word]", word, word_processed);
-                words_processed.push(word_processed);
-                continue;
-            }
+                word if regex_three_letter_word.is_match(word) => {
+                    let first_half = &word[..2];
+                    let second_half = &word[2..];
+                    debug!(
+                        "{} -> {} [3-Letter word]",
+                        word,
+                        format!("{}{}", first_half.bold(), second_half)
+                    );
+                    format!("{}{}", first_half.bold(), second_half).normal() // TODO: Better way to
+                                                                             // concatenate into a ColoredString?
+                }
 
-            // Word is anything else
-            let split_point = word.len() / 2;
-            let first_half = &word[..split_point].to_string();
-            let second_half = &word[split_point..].to_string();
-            let word_processed = format!("{}{}", first_half.bold(), second_half);
-            debug!("{} -> {} [3-Letter word]", word, word_processed);
-            words_processed.push(word_processed);
+                _ => {
+                    let split_point = word.len() / 2;
+                    let first_half = &word[..split_point];
+                    let second_half = &word[split_point..];
+                    debug!(
+                        "{} -> {} [3-Letter word]",
+                        word,
+                        format!("{}{}", first_half.bold(), second_half)
+                    );
+                    format!("{}{}", first_half.bold(), second_half).normal()
+                }
+            };
 
-            // let second_half = if self.is_dimmed {
-            //     second_half.dimmed().to_string()
-            // } else {
-            //     second_half.to_string()
-            // };
+            words_processed.push(word_processed.to_string());
         }
         debug!("Successfully processed all words!");
-
-        println!("----------------------------------");
-        let words_joined = words_processed.join("");
-        println!("{}", words_joined);
-
+        self.text_output = words_processed.join("");
         self
     }
 }

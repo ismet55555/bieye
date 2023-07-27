@@ -14,7 +14,7 @@ fn main() -> Result<()> {
 
     // Get usert options flag input
     let _args = BioReadArgs::parse();
-    println!("{:?}", _args);
+    // println!("{:?}", _args);
 
     let mut input_text = String::new();
 
@@ -33,17 +33,9 @@ fn main() -> Result<()> {
         }
     }
 
-    ///////////////////////////////////////////////////////
-
     let mut br = BioReader::default();
     br.text_input = input_text;
-    br.process_text();
-
-    // br.print_original();
-    // println!("----------------------------------");
-    // br.print_processed();
-
-    ///////////////////////////////////////////////////////
+    br.process_text().print_processed();
 
     Ok(())
 }
