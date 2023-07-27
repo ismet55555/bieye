@@ -16,31 +16,32 @@ fn main() -> Result<()> {
     let _args = BioReadArgs::parse();
     println!("{:?}", _args);
 
-    // Check if stdin_text is Some
+    let mut input_text = String::new();
+
+    // Load user input text
     if let Some(text) = _args.text {
-        println!("STDIN: {}", text);
-        return Ok(());
-    }
-
-    ///////////////////////////////////////////////////////
-
-    // Read text from stdin
-    let mut input_from_stdin = String::new();
-    io::stdin().read_to_string(&mut input_from_stdin)?;
-    if input_from_stdin.is_empty() {
-        println!("No input from stdin");
-        return Ok(());
+        // Passed via command line option flag
+        println!("Passed STDIN: {}", text);
+        input_text = text;
+        // return Ok(());
+    } else {
+        // Passed via stdin pipe
+        io::stdin().read_to_string(&mut input_text)?;
+        if input_text.is_empty() {
+            println!("No input from stdin");
+            return Ok(());
+        }
     }
 
     ///////////////////////////////////////////////////////
 
     let mut br = BioReader::default();
-    br.text = input_from_stdin;
-    br.apply_bold_text();
+    br.text_input = input_text;
+    br.process_text();
 
-    br.print_original();
-    println!("----------------------------------");
-    br.print_processed();
+    // br.print_original();
+    // println!("----------------------------------");
+    // br.print_processed();
 
     ///////////////////////////////////////////////////////
 

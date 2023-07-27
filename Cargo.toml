@@ -4,11 +4,13 @@ edition = "2021"
 name = "bioread"
 readme = "README.md"
 version = "0.1.0"
+description = "A tool for reading text blazingly fast"
 
 [dependencies]
-clap = { version = "4.3", features = ["derive"] }
-color-eyre = "0.6"  # for better error messages
-colored = "2.0"  # for colored string output
-env_logger = "0.10"  # for logging to stdout, needed by log
-log = "0.4"  # for message logging
-crossterm = "0.25"
+clap = { version = "4.3", features = ["derive"] } # cli tool building
+color-eyre = "0.6"  # better error messages
+colored = "2.0"  # colored string output
+env_logger = "0.10"  # logging to stdout, needed by log
+log = "0.4"  # message logging
+crossterm = "0.26"
+regex = "1.9"  # regex operations

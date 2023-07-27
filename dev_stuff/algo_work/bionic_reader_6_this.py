@@ -1,7 +1,7 @@
 from colorama import Style, Fore
 import re
 
-col = True
+col = False
 dim = True
 
 
@@ -19,14 +19,22 @@ def parse_text(text):
 
         # Punctuation and symbols
         if re.match(r'^[\W_]+$', words[index]):
-            words[index] = f'{Style.BRIGHT}{Fore.RED if col else ""}{words[index]}{Style.RESET_ALL}'
+            words[index] = (
+                f'{Style.BRIGHT}{Fore.RED if col else ""}'
+                f'{words[index]}'
+                f'{Style.RESET_ALL}'
+            )
             print(words[index])
             continue
 
         # Numbers
         try:
             int(words[index])
-            words[index] = f'{Style.BRIGHT}{Fore.GREEN if col else ""}{words[index]}{Style.RESET_ALL}'
+            words[index] = (
+                f'{Style.BRIGHT}{Fore.GREEN if col else ""}'
+                f'{words[index]}'
+                f'{Style.RESET_ALL}'
+            )
             print(words[index])
             continue
         except ValueError:
@@ -37,13 +45,22 @@ def parse_text(text):
         if len(words[index]) == 3:
             first_half = words[index][:2]
             second_half = words[index][2:]
-            words[index] = f'{Style.BRIGHT}{Fore.CYAN if col else ""}{first_half}{Style.RESET_ALL}{second_half}'
+            words[index] = (
+                f'{Style.BRIGHT}{Fore.CYAN if col else ""}'
+                f'{first_half}'
+                f'{Style.RESET_ALL}'
+                f'{second_half}'
+            )
             print(words[index])
             continue
 
         # Very short words
         if len(words[index]) < 3:
-            words[index] = f'{Style.BRIGHT}{Fore.BLUE if col else ""}{words[index]}{Style.RESET_ALL}'
+            words[index] = (
+                f'{Style.BRIGHT}{Fore.BLUE if col else ""}'
+                f'{words[index]}'
+                f'{Style.RESET_ALL}'
+            )
             print(words[index])
             continue
 
@@ -55,7 +72,7 @@ def parse_text(text):
             f'{Style.BRIGHT}{Fore.YELLOW if col else ""}'
             f'{first_half}'
             f'{Style.RESET_ALL}'
-            f'{Style.DIM}'
+            f'{Style.DIM if dim else ""}'
             f'{second_half}'
             f'{Style.RESET_ALL}'
         )
