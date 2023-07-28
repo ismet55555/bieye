@@ -9,11 +9,16 @@
 - Set up a simple string processing module - DONE
 
 - Find out about bionic reader - DONE
+
   - Reaserach paper? - None
   - Other GitHub projects
   - Start with simplest at first
 
-- Port python bionic reader code to Rust
+- Port python bionic reader code to Rust - DONE
+
+- Enable color
+
+- Enable dimming
 
 ## FIXME
 
@@ -38,3 +43,10 @@
 - bronic
 - bioturbo
 - bscan
+- bird
+- hawk
+- bioeye
+- rread
+- cya
+- bye
+- biohawk

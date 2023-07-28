@@ -21,9 +21,7 @@ fn main() -> Result<()> {
     // Load user input text
     if let Some(text) = _args.text {
         // Passed via command line option flag
-        println!("Passed STDIN: {}", text);
         input_text = text;
-        // return Ok(());
     } else {
         // Passed via stdin pipe
         io::stdin().read_to_string(&mut input_text)?;
