@@ -16,20 +16,29 @@
 
 - Port python bionic reader code to Rust - DONE
 
-- Enable color
+- Enable color (only yellow)- DONE
 
-- Enable dimming
+- Enable dimming - DONE
+
+- Let user pick of one of set color names
+
+  - Potentially just match check in Bieye class
+
+- Pick a name
+- Rename everything
+- Add better short and long description
+- Update README
+
+- Find how to brew install
+- Find how to apt install
+- Find how to choco install
 
 ## FIXME
 
-- When running cli tool by itself, it is waiting for entering a piece of text
+- When running cli tool by itself, it is waiting for entering a piece of text!
 
 ## IDEAS
 
-- Option to dim the second half of the word
-- Option to color bolded word
-  - Ability to pick a few colors
-- Option to color both font and background for both bolded and not bolded text
 - Ability to output the text at a slow pace
 
 ## NAMES
@@ -37,7 +46,6 @@
 - bioread
 - bionic
 - bread
-- bior
 - br
 - brr
 - bronic
@@ -50,3 +58,11 @@
 - cya
 - bye
 - biohawk
+- bieye - THIS
+- bior
+
+## LOGO IDEAS
+
+- glasses
+- speedometer
+- eye

@@ -1,10 +1,10 @@
 [package]
 authors = ["Ismet Handzic"]
 edition = "2021"
-name = "bioread"
+name = "bieye"
 readme = "README.md"
 version = "0.1.0"
-description = "A tool for reading text blazingly fast"
+description = "A bionic reader for blazingly fast reading within a terminal console"
 
 [dependencies]
 clap = { version = "4.3", features = ["derive"] } # cli tool building

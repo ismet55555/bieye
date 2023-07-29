@@ -1,8 +1,8 @@
-use colored::{Colorize, ColoredString};
+use colored::{ColoredString, Colorize};
 use log::debug;
 use regex::Regex;
 
-// BioReader regex patterns
+// Reader regex patterns
 const REGEX_DIVIDE_WORDS: &str = r"\w+|[^\w]|[\s]";
 const REGEX_WHITESPACE: &str = r"^[\s]+$";
 const REGEX_PUNCTUATION: &str = r"^[\W_]+$";
@@ -11,9 +11,9 @@ const REGEX_CONTRACTION: &str = r"^\w+'\w+$";
 const REGEX_LESS_THAN_THREE: &str = r"^\w{1,2}$";
 const REGEX_THREE_LETTER_WORD: &str = r"^\w{3}$";
 
-/// This struct handles all BioReader related functions
+/// This struct handles all Bieye related functions
 #[derive(Debug)]
-pub struct BioReader {
+pub struct Bieye {
     pub text_input: String,
     pub text_output: String,
     pub bold: bool,
@@ -22,7 +22,7 @@ pub struct BioReader {
     pub is_dimmed: bool,
 }
 
-impl Default for BioReader {
+impl Default for Bieye {
     fn default() -> Self {
         Self {
             text_input: String::new(),
@@ -35,20 +35,14 @@ impl Default for BioReader {
     }
 }
 
-impl BioReader {
-    /// Print the original text
-    // pub fn print_original(&self) {
-    //     println!("{}", self.text_input);
-    // }
-
+impl Bieye {
     /// Print the processed text
     pub fn print_processed(&self) {
         println!("{}", self.text_output);
     }
 
+    // Color text if self.is_colored is true
     fn color_text(&self, word: &str) -> ColoredString {
-        // Color word if self.is_colored is true based on self.color which is a str
-        // Use the value of self.color to determine which color to use
         let word_style = if self.is_colored {
             word.yellow()
         } else {
@@ -57,6 +51,7 @@ impl BioReader {
         word_style
     }
 
+    // Dim text if self.is_dimmed is true
     fn dim_text(&self, word: &str) -> ColoredString {
         let word_style = if self.is_dimmed {
             word.dimmed()
@@ -67,7 +62,6 @@ impl BioReader {
     }
 
     /// Apply bold text to the text
-    /// TODO: Optomize this function! -
     pub fn process_text(&mut self) -> &Self {
         // Compile regex patterns
         let regex_whitespace: Regex = Regex::new(REGEX_WHITESPACE).unwrap();

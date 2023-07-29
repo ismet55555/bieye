@@ -2,10 +2,10 @@ use color_eyre::eyre::Result;
 use std::io::{self, Read};
 
 mod args;
-mod bioreader;
+mod bieye;
 
-use args::BioReadArgs;
-use bioreader::BioReader;
+use args::CliArgs;
+use bieye::Bieye;
 use clap::Parser;
 
 fn main() -> Result<()> {
@@ -13,7 +13,7 @@ fn main() -> Result<()> {
     env_logger::init();
 
     // Get usert options flag input
-    let _args = BioReadArgs::parse();
+    let _args = CliArgs::parse();
     // println!("{:?}", _args);
 
     let mut input_text = String::new();
@@ -31,8 +31,10 @@ fn main() -> Result<()> {
         }
     }
 
-    let mut br = BioReader::default();
+    let mut br = Bieye::default();
     br.text_input = input_text;
+    br.is_colored = _args.color;
+    br.is_dimmed = _args.dim;
     br.process_text().print_processed();
 
     Ok(())
