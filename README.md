@@ -13,6 +13,27 @@ of text, which tricks the brain of reading without losing content.
 
 **Essentially:** Use this tool to speed up your text reading while using the console
 
+## Installation
+
+Note: This is a temporary cargo-based installation,
+Homebrew and apt packages to come.
+
+1. _(if needed)_ Install Rust and Cargo Package Manager
+
+   - MacOS/Linux: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
+   - Windows:
+     - Chocolatey: `choco install rust`
+     - Scoop: `scoop install main/rust`
+
+2. Pull this GitHub repository and install
+
+   - ```bash
+     git clone git@github.com:ismet55555/bieye.git
+     cd bioread
+     cargo install --path .
+     bieye --help
+     ```
+
 ## Usage Examples
 
 The following are a few simple usage examples for `bieye`
