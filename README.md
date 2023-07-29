@@ -91,4 +91,5 @@ echo "Just some testing text" | cargo run --
 
 # Other terminal windows
 cargo install --locked bacon
+bacon --all-features
 ```
