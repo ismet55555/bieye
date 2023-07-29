@@ -66,3 +66,4 @@
 - glasses
 - speedometer
 - eye
+- rust crab

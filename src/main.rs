@@ -1,10 +1,10 @@
 use color_eyre::eyre::Result;
 use std::io::{self, Read};
 
-mod args;
+mod cli_args;
 mod bieye;
 
-use args::CliArgs;
+use cli_args::CliArgs;
 use bieye::Bieye;
 use clap::Parser;
 
