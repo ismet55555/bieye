@@ -4,7 +4,7 @@
 
 <h1 align="center">:eyeglasses: bieye</h1>
 
-This CLI tool reads text and returns it back in bionic reading format
+This Rust-based CLI tool reads text and returns it back in bionic reading format
 for blazingly fast loading and even faster reading!
 
 Bionic reading is the reading of specially formatted text, allowing for
@@ -78,6 +78,7 @@ Options:
 Feel free to contribute! Here is a super quick start if you are vaguely familiar with Rust.
 
 ```bash
+# Setup
 git clone git@github.com:ismet55555/bieye.git && cd bioread
 git checkout -b my-cool-new-branch
 cargo build
