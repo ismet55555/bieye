@@ -13,6 +13,10 @@ of text, which tricks the brain of reading without losing content.
 
 **Essentially:** Use this tool to speed up your text reading while using the console
 
+<p align="center">
+  <img src="assets/demo.gif" alt="test gif" width="80%" style="box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);">
+</p>
+
 ## Installation
 
 Note: This is a temporary cargo-based installation,
