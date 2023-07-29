@@ -1,11 +1,11 @@
 use color_eyre::eyre::Result;
 use std::io::{self, Read};
 
-mod args;
-mod bioreader;
+mod cli_args;
+mod bieye;
 
-use args::BioReadArgs;
-use bioreader::BioReader;
+use cli_args::CliArgs;
+use bieye::Bieye;
 use clap::Parser;
 
 fn main() -> Result<()> {
@@ -13,36 +13,29 @@ fn main() -> Result<()> {
     env_logger::init();
 
     // Get usert options flag input
-    let _args = BioReadArgs::parse();
-    println!("{:?}", _args);
+    let _args = CliArgs::parse();
+    // println!("{:?}", _args);
 
-    // Check if stdin_text is Some
+    let mut input_text = String::new();
+
+    // Load user input text
     if let Some(text) = _args.text {
-        println!("STDIN: {}", text);
-        return Ok(());
+        // Passed via command line option flag
+        input_text = text;
+    } else {
+        // Passed via stdin pipe
+        io::stdin().read_to_string(&mut input_text)?;
+        if input_text.is_empty() {
+            println!("No input from stdin");
+            return Ok(());
+        }
     }
 
-    ///////////////////////////////////////////////////////
-
-    // Read text from stdin
-    let mut input_from_stdin = String::new();
-    io::stdin().read_to_string(&mut input_from_stdin)?;
-    if input_from_stdin.is_empty() {
-        println!("No input from stdin");
-        return Ok(());
-    }
-
-    ///////////////////////////////////////////////////////
-
-    let mut br = BioReader::default();
-    br.text = input_from_stdin;
-    br.apply_bold_text();
-
-    br.print_original();
-    println!("----------------------------------");
-    br.print_processed();
-
-    ///////////////////////////////////////////////////////
+    let mut br = Bieye::default();
+    br.text_input = input_text;
+    br.is_colored = _args.color;
+    br.is_dimmed = _args.dim;
+    br.process_text().print_processed();
 
     Ok(())
 }

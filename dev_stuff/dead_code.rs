@@ -27,3 +27,31 @@ println!("PIPED STDIN: {}", input_from_stdin);
 if input_from_stdin.is_empty() {
     return Err(eyre!("No text provided via command-line argument or stdin"));
 }
+
+
+
+//////////////////////////////////////////////////////////////////////////////////
+/// Remove spaces
+//////////////////////////////////////////////////////////////////////////////////
+        let words: Vec<&str> = re_words
+            .find_iter(self.text_input.as_str())
+            .map(|mat| mat.as_str())
+            .filter(|word| !word.trim().is_empty())  // REMOVING SPACES
+            .collect();
+
+
+
+//////////////////////////////////////////////////////////////////////////////////
+/// Loading stdin
+//////////////////////////////////////////////////////////////////////////////////
+use std::{io, io::prelude::*};
+
+pub type Error = Box<dyn std::error::Error + Send + Sync>;
+pub type Result<T> = std::result::Result<T, Error>;
+
+pub fn main() -> Result<()> {
+    for line in io::stdin().lock().lines() {
+        println!("length = {}", line?.len());
+    }
+    Ok(())
+}

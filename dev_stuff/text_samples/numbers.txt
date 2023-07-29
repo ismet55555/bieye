@@ -1,0 +1,18 @@
+1. Simple Arithmetic:
+   - Add 75 and 32.
+   - Subtract 46 from 192.
+   - Multiply 34 by 7.
+   - Divide 144 by 12.
+
+2. Equations:
+   - Solve for x in the equation 2x + 5 = 15.
+   - Solve for y in the equation 3y - 7 = 8.
+   - Solve the quadratic equation 4x^2 - 3x - 2 = 0.
+
+3. Number Sequences:
+   - Find the next number in the sequence: 2, 4, 6, 8, ___
+   - Identify the pattern in the sequence: 3, 6, 12, 24, ___
+
+4. Math Problems:
+   - John has 12 apples and he eats 3. How many apples does he have left?
+   - Sarah has 5 bags of candies. Each bag contains 8 candies. How many candies does Sarah have in total?

@@ -1,14 +1,19 @@
 [package]
 authors = ["Ismet Handzic"]
 edition = "2021"
-name = "bioread"
+name = "bieye"
 readme = "README.md"
 version = "0.1.0"
+description = "A bionic reader for blazingly fast reading within a terminal console"
 
 [dependencies]
-clap = { version = "4.3", features = ["derive"] }
-color-eyre = "0.6"  # for better error messages
-colored = "2.0"  # for colored string output
-env_logger = "0.10"  # for logging to stdout, needed by log
-log = "0.4"  # for message logging
-crossterm = "0.25"
+clap = { version = "4.3", features = ["derive"] } # cli tool building
+color-eyre = "0.6"  # better error messages
+colored = "2.0"  # colored string output
+env_logger = "0.10"  # logging to stdout, needed by log
+log = "0.4"  # message logging
+crossterm = "0.26"
+regex = "1.9"  # regex operations
+
+[dev-dependencies]
+bacon = "2.12"  # active testing framework
