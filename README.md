@@ -2,7 +2,7 @@
   <!-- <img width="120" alt="portfolio_view" src="https://raw.githubusercontent.com/ismet55555/yojenkins/main/docs/source/logo_final.png"> -->
 </p>
 
-<h1 align="center">:eyeglasses: bieye :fast_forward:</h1>
+<h1 align="center">:eyeglasses: bieye</h1>
 
 This CLI tool reads text and returns it back in bionic reading format
 for blazingly fast loading and even faster reading!
