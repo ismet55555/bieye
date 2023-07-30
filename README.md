@@ -33,7 +33,7 @@ Homebrew and apt packages to come.
 
    - ```bash
      git clone git@github.com:ismet55555/bieye.git
-     cd bioread
+     cd bieye
      cargo install --path .
      bieye --help
      ```
