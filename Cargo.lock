@@ -192,6 +192,7 @@ dependencies = [
  "crossterm 0.26.1",
  "env_logger",
  "log",
+ "rayon",
  "regex",
 ]
 

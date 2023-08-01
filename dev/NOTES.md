@@ -29,6 +29,8 @@
 - Add better short and long description - DONE
 - Update README - DONE
 
+- Parallel word processing
+
 - Add some basic tests
 - Add all tests
 

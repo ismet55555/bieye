@@ -55,3 +55,19 @@ pub fn main() -> Result<()> {
     }
     Ok(())
 }
+
+
+
+//////////////////////////////////////////////////////////////////////////////////
+/// Pick highlight color
+//////////////////////////////////////////////////////////////////////////////////
+    /// Color of highlighted text (default: yellow)
+        // FIXME: This is currently not working
+        // FIXME: Parse in Bieye struct and check
+    #[clap(
+        short = 'y',
+        long,
+        value_name = "STRING",
+        required = false,
+    )]
+    pub color_name: Option<String>,
