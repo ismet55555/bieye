@@ -1,12 +1,12 @@
 use color_eyre::eyre::Result;
 use std::io::{self, Read};
 
-mod cli_args;
 mod bieye;
+mod cli_args;
 
-use cli_args::CliArgs;
 use bieye::Bieye;
 use clap::Parser;
+use cli_args::CliArgs;
 
 fn main() -> Result<()> {
     color_eyre::install()?;
