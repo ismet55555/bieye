@@ -10,9 +10,10 @@ description = "A bionic reader for blazingly fast reading within a terminal cons
 clap = { version = "4.3", features = ["derive"] } # cli tool building
 color-eyre = "0.6"  # better error messages
 colored = "2.0"  # colored string output
+crossterm = "0.26"
 env_logger = "0.10"  # logging to stdout, needed by log
 log = "0.4"  # message logging
-crossterm = "0.26"
+rayon = "1.7" # parallelization
 regex = "1.9"  # regex operations
 
 [dev-dependencies]

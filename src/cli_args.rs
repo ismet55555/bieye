@@ -29,13 +29,4 @@ pub struct CliArgs {
     #[clap(short = 'd', long, required = false)]
     pub dim: bool,
 
-    // ///Color of highlighted text (default: yellow)
-    // FIXME: This is currently not working, parse in Bieye struct
-    // #[clap(
-    //     short = 'y',
-    //     long,
-    //     value_name = "STRING",
-    //     required = false,
-    // )]
-    // pub color_name: Option<String>,
 }

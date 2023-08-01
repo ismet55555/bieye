@@ -14,7 +14,6 @@ fn main() -> Result<()> {
 
     // Get usert options flag input
     let _args = CliArgs::parse();
-    // println!("{:?}", _args);
 
     let mut input_text = String::new();
 
@@ -35,6 +34,8 @@ fn main() -> Result<()> {
     br.text_input = input_text;
     br.is_colored = _args.color;
     br.is_dimmed = _args.dim;
+
+    // Process text
     br.process_text().print_processed();
 
     Ok(())
