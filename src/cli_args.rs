@@ -28,5 +28,4 @@ pub struct CliArgs {
     /// Dim text not highlighted
     #[clap(short = 'd', long, required = false)]
     pub dim: bool,
-
 }
