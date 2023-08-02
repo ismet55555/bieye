@@ -19,24 +19,22 @@ of text, which tricks the brain of reading without losing content.
 
 ## Installation
 
-Note: This is a temporary cargo-based installation,
-Homebrew and apt packages to come.
+### Homebrew
 
-1. _(if needed)_ Install Rust and Cargo Package Manager
+The following command will tap a new homebrew tap and install
 
-   - MacOS/Linux: `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
-   - Windows:
-     - Chocolatey: `choco install rust`
-     - Scoop: `scoop install main/rust`
+```bash
+brew install ismet55555/things/bieye
+```
 
-2. Pull this GitHub repository and install
+### Cargo/Rust
 
-   - ```bash
-     git clone git@github.com:ismet55555/bieye.git
-     cd bieye
-     cargo install --path .
-     bieye --help
-     ```
+Pull this GitHub repository into your current directory and install
+
+```bash
+git clone git@github.com:ismet55555/bieye.git && cd bieye
+cargo install --path .
+ ```
 
 ## Usage Examples
 
