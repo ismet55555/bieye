@@ -1,0 +1,12 @@
+Source: bieye
+Section: text
+Priority: optional
+Maintainer: Ismet Handzic <ismet.handzic@gmail.com>
+Build-Depends: debhelper (>= 12), rustc, cargo, dh-cargo
+Standards-Version: 3.9.8
+Homepage: https://github.com/ismet55555/bieye
+
+Package: bieye
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: A bionic reader for fast reading within a terminal console

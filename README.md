@@ -19,22 +19,26 @@ of text, which tricks the brain of reading without losing content.
 
 ## Installation
 
-### Homebrew
+- **Homebrew**
 
-The following command will tap a new homebrew tap and install
+  ```bash
+  brew install ismet55555/things/bieye
+  ```
 
-```bash
-brew install ismet55555/things/bieye
-```
+- **APT**
 
-### Cargo/Rust
+  ```bash
+  sudo add-apt-repository ppa:ismet55555/ppa --yes
+  sudo apt update
+  sudo apt install bieye
+  ```
 
-Pull this GitHub repository into your current directory and install
+- **Cargo**
 
-```bash
-git clone git@github.com:ismet55555/bieye.git && cd bieye
-cargo install --path .
- ```
+  ```bash
+  git clone git@github.com:ismet55555/bieye.git && cd bieye
+  cargo install --path .
+  ```
 
 ## Usage Examples
 
