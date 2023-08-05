@@ -25,12 +25,10 @@ of text, which tricks the brain of reading without losing content.
   brew install ismet55555/things/bieye
   ```
 
-- **APT**
+- **Snap Store**
 
   ```bash
-  sudo add-apt-repository ppa:ismet55555/ppa --yes
-  sudo apt update
-  sudo apt install bieye
+  snap install bieye
   ```
 
 - **Cargo**
