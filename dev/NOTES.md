@@ -2,41 +2,14 @@
 
 ## TODO
 
-- Set up standard in piping - DONE
-
-  - print out passed string
-
-- Set up a simple string processing module - DONE
-
-- Find out about bionic reader - DONE
-
-  - Reaserach paper? - None
-  - Other GitHub projects
-  - Start with simplest at first
-
-- Port python bionic reader code to Rust - DONE
-
-- Enable color (only yellow)- DONE
-
-- Enable dimming - DONE
-
-- Let user pick of one of set color names
-
-  - Potentially just match check in Bieye class
-
-- Pick a name - DONE
-- Rename everything - DONE
-- Add better short and long description - DONE
-- Update README - DONE
-
-- Parallel word processing
-
 - Add some basic tests
 - Add all tests
 
-- Find how to brew install
-- Find how to apt install
-- Find how to choco install
+- Packaging
+  - Implement brew install - DONE
+  - Implement snapcraft install
+  - Implement choco install
+  - Implement apt install - Issue with launchpad
 
 ## FIXME
 
@@ -63,7 +36,7 @@
 - cya
 - bye
 - biohawk
-- bieye - THIS
+- bieye <------- THIS
 - bior
 
 ## LOGO IDEAS
@@ -111,3 +84,15 @@ quickcheck: A property-based testing library for generating random test cases.
 ### Code Coverage
 
 tarpaulin: A code coverage tool for Rust projects.
+
+## Other Projects
+
+- <https://github.com/angelsflyinhell/2x> (Typescript)
+- <https://github.com/Jwuthri/Riffling/tree/master> (Python)
+- <https://github.com/GPFSimon/Speed-Bionic-Reading> (VBA)
+- <https://github.com/ltguillaume/bread> (Javascript)
+- <https://github.com/FluxxField/bionic-reading.nvim/tree/main> (Lua - NVIM)
+- <https://github.com/Born2Root/Fast-Font> (HTML)
+- <https://github.com/Cveinnt/bionify> (Javascript)
+- <https://github.com/ahrm/chrome-fastread> (Javascript)
+-
