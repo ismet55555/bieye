@@ -1,0 +1,34 @@
+---
+name: bieye
+version: 0.2.0
+summary: A bionic reader for fast reading within a terminal console
+description: >
+  This CLI tool reads text and returns it back
+  in bionic reading format for blazingly fast
+  loading and even faster reading!
+
+# Use type: stable, devel
+grade: stable
+
+# Build base
+#    https://snapcraft.io/docs/base-snaps
+#    https://snapcraft.io/docs/rust-plugin
+base: core22
+
+# Confinement:
+#   https://snapcraft.io/docs/snap-confinement
+confinement: strict
+
+parts:
+  part-1:
+    source: .
+    plugin: rust
+    build-environment:
+      - RUST_BACKTRACE: '1'
+    build-packages:
+      - rustc
+      - cargo
+
+apps:
+  bieye:
+    command: bin/bieye

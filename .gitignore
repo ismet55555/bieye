@@ -14,10 +14,12 @@ Cargo.lock
 # MSVC Windows builds of rustc generate these, which store debugging information
 *.pdb
 
-
 # Debian Packaging
 **/*.dsc
 **/*.tar.gz
 **/*.build
 **/*.buildinfo
 **/*.changes
+
+# Snap packages
+**/*.snap
