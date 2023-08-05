@@ -5,6 +5,7 @@ name = "bieye"
 readme = "README.md"
 version = "0.2.0"
 description = "A bionic reader for blazingly fast reading within a terminal console"
+license = "GPL-3.0-or-later"
 
 [dependencies]
 clap = { version = "4.3", features = ["derive"] } # cli tool building
