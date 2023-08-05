@@ -34,8 +34,7 @@ of text, which tricks the brain of reading without losing content.
 - **Cargo**
 
   ```bash
-  git clone git@github.com:ismet55555/bieye.git && cd bieye
-  cargo install --path .
+  cargo install bieye
   ```
 
 ## Usage Examples
