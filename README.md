@@ -38,7 +38,7 @@ of text, which tricks the brain of reading without losing content.
   cargo install bieye
   ```
 
-- **Copile From Source**
+- **Compile From Source**
 
   ```bash
   git clone git@github.com:ismet55555/bieye.git
