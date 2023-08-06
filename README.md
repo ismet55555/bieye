@@ -1,8 +1,9 @@
 <p align="center">
-  <!-- <img width="120" alt="portfolio_view" src="https://raw.githubusercontent.com/ismet55555/bieye/......."> -->
+  <img width="350" alt="portfolio_view" src="assets/logo.png">
 </p>
 
-<h1 align="center">:eyeglasses: bieye</h1>
+<br/>
+
 
 This Rust-based CLI tool reads text and returns it back in bionic reading format
 for blazingly fast loading and even faster reading!
@@ -36,6 +37,15 @@ of text, which tricks the brain of reading without losing content.
   ```bash
   cargo install bieye
   ```
+
+- **Compile From Source**
+
+  ```bash
+  git clone git@github.com:ismet55555/bieye.git
+  cd bieye
+  cargo install --path .
+  ```
+
 
 ## Usage Examples
 
@@ -76,9 +86,9 @@ Options:
   -V, --version  Print version
 ```
 
-## Development
+## Contribution and Development
 
-Feel free to contribute! Here is a super quick start if you are vaguely familiar with Rust.
+Feel free to contribute! Here is a super quick start if you are vaguely familiar with [Rust](https://www.rust-lang.org/tools/install).
 
 ```bash
 # Setup
