@@ -47,11 +47,11 @@ jobs:
 
       - name: Run tests
         shell: bash
-        run: cargo test
+        run: cargo test -- --show-output
 
       - name: Create code coverage report with cargo-tarpaulin
         uses: actions-rs/tarpaulin@v0.1
-        if: ${{ matrix.os == 'ubuntu-latest' && github.event_name == 'push' }}
+        if: ${{ matrix.os == 'ubuntu-latest' }}
         with:
           version: '0.26.0'
           args: '--ignore-config --ignore-panics --ignore-tests --exclude-files src/main.rs'
