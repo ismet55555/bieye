@@ -38,9 +38,11 @@ jobs:
         run: cargo build --verbose
 
       - name: Run tests
+        shell: bash
         run: |
           export TERM=xterm-256color
           cargo test
 
       - name: Run program
+        shell: bash
         run: cargo run -- --help
