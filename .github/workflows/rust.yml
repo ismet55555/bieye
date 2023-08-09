@@ -10,7 +10,7 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  build:
+  Testing:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -25,6 +25,9 @@ jobs:
         run: |
           echo -e "\033[38;5;44mThis is in 256 color mode\033[0m"
 
+      - name: Check Terminal - $TERM
+        run: echo $TERM
+
       - name: Formatting Check
         run: cargo fmt -- --check
 
@@ -35,7 +38,9 @@ jobs:
         run: cargo build --verbose
 
       - name: Run tests
-        run: cargo test --verbose
+        run: |
+          export TERM=xterm-256color
+          cargo test
 
       - name: Run program
         run: cargo run -- --help
