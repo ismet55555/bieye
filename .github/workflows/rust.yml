@@ -15,6 +15,16 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Check Terminal - $TERM
+        run: echo $TERM
+
+      - name: Set $TERM to 256 color
+        run: echo "TERM=xterm-256color" >> $GITHUB_ENV
+
+      - name: Check 256 color terminal
+        run: |
+          echo -e "\033[38;5;44mThis is in 256 color mode\033[0m"
+
       - name: Formatting Check
         run: cargo fmt -- --check
 
