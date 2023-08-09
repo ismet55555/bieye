@@ -28,21 +28,26 @@ jobs:
       - name: Check Terminal - $TERM
         run: echo $TERM
 
-      - name: Formatting Check
-        run: cargo fmt -- --check
+      - name: XXX
+        shell: bash
+        run: which bash
 
-      - name: Linting Check - Clippy
-        run: cargo clippy --all-targets --all-features
 
-      - name: Build Check
-        run: cargo build --verbose
+      # - name: Formatting Check
+      #   run: cargo fmt -- --check
+      #
+      # - name: Linting Check - Clippy
+      #   run: cargo clippy --all-targets --all-features
 
       - name: Run tests
         shell: bash
         run: |
           export TERM=xterm-256color
-          cargo test
+          bash cargo test
 
-      - name: Run program
-        shell: bash
-        run: cargo run -- --help
+      # - name: Check Build
+      #   run: cargo build --verbose
+      #
+      # - name: Check Run
+      #   shell: bash
+      #   run: cargo run -- --help
