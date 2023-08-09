@@ -11,10 +11,12 @@ mod tests_bieye {
     #[test]
     fn test_color_text() {
         // Check if the TERM environment variable is set to "dumb"
+        println!("TERM={}", std::env::var("TERM").unwrap_or_default());
         if std::env::var("TERM").unwrap_or_default() == "dumb" {
             eprintln!("WARNING: Skipping color test due to TERM=dumb terminal");
             return;
         }
+        // TERM=tmux-256color
 
         let mut be = bieye::Bieye {
             text_input: "TESTING".to_string(),

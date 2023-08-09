@@ -47,7 +47,7 @@ jobs:
 
       - name: Run tests
         shell: bash
-        run: cargo test
+        run: cargo test -- --show-output
 
       - name: Create code coverage report with cargo-tarpaulin
         uses: actions-rs/tarpaulin@v0.1
