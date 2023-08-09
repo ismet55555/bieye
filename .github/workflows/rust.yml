@@ -43,7 +43,7 @@ jobs:
         shell: bash
         run: |
           export TERM=xterm-256color
-          bash cargo test
+          bash -c cargo test
 
       # - name: Check Build
       #   run: cargo build --verbose
