@@ -30,6 +30,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Cache build artifacts
+        uses: swatinem/rust-cache@v2
+
       - name: Check terminal type - $TERM
         run: echo $TERM
 
@@ -51,9 +54,9 @@ jobs:
 
       - name: Create code coverage report with cargo-tarpaulin
         uses: actions-rs/tarpaulin@v0.1
-        if: ${{ matrix.os == 'ubuntu-latest' }}
+        # if: ${{ matrix.os == 'ubuntu-latest' }}
         with:
-          version: '0.26.0'
+          # version: '0.19.1'
           args: '--ignore-config --ignore-panics --ignore-tests --exclude-files src/main.rs'
           timeout: 900
 
