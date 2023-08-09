@@ -56,7 +56,7 @@ jobs:
         uses: actions-rs/tarpaulin@v0.1
         # if: ${{ matrix.os == 'ubuntu-latest' }}
         with:
-          # version: '0.19.1'
+          version: '0.19.1'
           args: '--ignore-config --ignore-panics --ignore-tests --exclude-files src/main.rs'
           timeout: 900
 
