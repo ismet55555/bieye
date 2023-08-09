@@ -46,5 +46,5 @@ bieye --help
 sudo snap remove bieye
 
 # If all looks good, promote "edge" to "stable" channel
-snapcraft promote bieye --yes --verbose --from-channel=edge --to-channel=stable
+snapcraft promote bieye --from-channel=edge --to-channel=stable
 ```

@@ -48,22 +48,20 @@ impl Bieye {
 
     // Color text if self.is_colored is true
     fn color_text(&self, word: &str) -> ColoredString {
-        let word_style = if self.is_colored {
+        if self.is_colored {
             word.yellow()
         } else {
             word.normal()
-        };
-        word_style
+        }
     }
 
     // Dim text if self.is_dimmed is true
     fn dim_text(&self, word: &str) -> ColoredString {
-        let word_style = if self.is_dimmed {
+        if self.is_dimmed {
             word.dimmed()
         } else {
             word.normal()
-        };
-        word_style
+        }
     }
 
     // Process a single word
@@ -177,7 +175,7 @@ impl Bieye {
                 words
                     .par_iter()
                     .enumerate()
-                    .map(|(index, word)| (index, self.process_word(&word, &regex_patterns)))
+                    .map(|(index, word)| (index, self.process_word(word, &regex_patterns)))
                     .collect()
             });
 
@@ -192,7 +190,7 @@ impl Bieye {
             debug!("Processing words sequentially ...");
             words
                 .iter()
-                .map(|word| self.process_word(&word, &regex_patterns))
+                .map(|word| self.process_word(word, &regex_patterns))
                 .collect()
         };
 

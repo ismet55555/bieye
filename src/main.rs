@@ -1,7 +1,7 @@
 use color_eyre::eyre::Result;
 use std::io::{self, Read};
 
-mod bieye;
+pub mod bieye;
 mod cli_args;
 
 use bieye::Bieye;
@@ -14,6 +14,7 @@ fn main() -> Result<()> {
 
     // Get usert options flag input
     let _args = CliArgs::parse();
+    println!("{:?}", _args);
 
     let mut input_text = String::new();
 
@@ -30,13 +31,15 @@ fn main() -> Result<()> {
         }
     }
 
-    let mut br = Bieye::default();
-    br.text_input = input_text;
-    br.is_colored = _args.color;
-    br.is_dimmed = _args.dim;
+    let mut be = Bieye {
+        text_input: input_text,
+        is_colored: _args.color,
+        is_dimmed: _args.dim,
+        ..Default::default()
+    };
 
     // Process text
-    br.process_text().print_processed();
+    be.process_text().print_processed();
 
     Ok(())
 }
