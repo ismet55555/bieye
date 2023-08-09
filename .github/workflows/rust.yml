@@ -1,30 +1,65 @@
-name: Rust
+---
+name: Rust Basics
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
+    paths:
+      - 'Cargo.lock'
+      - 'Cargo.toml'
+      - 'src/**'
+      - 'tests/**'
+      - '**.yml'
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - main
+    paths:
+      - 'Cargo.lock'
+      - 'Cargo.toml'
+      - 'src/**'
+      - 'tests/**'
+      - '**.yml'
 
 env:
   CARGO_TERM_COLOR: always
 
 jobs:
-  build:
-
+  Testing:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-    - name: Formatting Check
-      run: cargo fmt -- --check
+      - name: Cache build artifacts
+        uses: swatinem/rust-cache@v2
 
-    - name: Linting Check - Clippy
-      run: cargo clippy --all-targets --all-features
+      - name: Check terminal type - $TERM
+        run: echo $TERM
 
-    - name: Build Check
-      run: cargo build --verbose
+      - name: Check if TERM=dumb
+        run: |
+          if [ "$TERM" == "dumb" ]; then
+            echo "WARNING: Terminal type is set to 'dumb', specific color and style tests will not be executed."
+          fi
 
-#     - name: Run tests
-#       run: cargo test --verbose
+      - name: Formatting Check
+        run: cargo fmt -- --check
+
+      - name: Linting Check - Clippy
+        run: cargo clippy --all-targets --all-features
+
+      - name: Run tests
+        shell: bash
+        run: cargo test -- --show-output
+
+      - name: Create code coverage report with cargo-tarpaulin
+        uses: actions-rs/tarpaulin@v0.1
+        # if: ${{ matrix.os == 'ubuntu-latest' }}
+        with:
+          version: '0.19.1'
+          args: '--ignore-config --ignore-panics --ignore-tests --exclude-files src/main.rs'
+          timeout: 900
+
+      - name: Check Run
+        shell: bash
+        run: cargo run -- --help

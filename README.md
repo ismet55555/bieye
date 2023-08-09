@@ -99,9 +99,12 @@ cargo build
 
 # ... work work work ...
 
-# Test run it
+# Test run the CLI
 cargo run -- --help
 echo "Just some testing text" | cargo run --
+
+# Run tests
+cargo test
 
 # Other terminal windows
 cargo install --locked bacon
