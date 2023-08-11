@@ -1,4 +1,5 @@
 use color_eyre::eyre::Result;
+use log::debug;
 use std::io::{self, Read};
 
 pub mod bieye;
@@ -14,7 +15,7 @@ fn main() -> Result<()> {
 
     // Get usert options flag input
     let _args = CliArgs::parse();
-    println!("{:?}", _args);
+    debug!("[CLI ARGS] {:?}", _args);
 
     let mut input_text = String::new();
 
@@ -26,7 +27,7 @@ fn main() -> Result<()> {
         // Passed via stdin pipe
         io::stdin().read_to_string(&mut input_text)?;
         if input_text.is_empty() {
-            println!("No input from stdin");
+            println!("ERROR: No input received via stdin.");
             return Ok(());
         }
     }
