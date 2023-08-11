@@ -1,4 +1,4 @@
-## Change Motivation
+## Change Motivation / Problem Statement
 
 _(A very brief summary on why you made these changes)_
 
@@ -20,20 +20,16 @@ _(Check any that apply)_
 
 - [ ] Bug Fix
 - [ ] New Feature
+- [ ] Dependencies
 - [ ] Code Refactoring
 - [ ] Documentation
 - [ ] Formatting
 - [ ] Automation
 - [ ] Unit Tests
+- [ ] Bump Version
+- [ ] Automation
+- [ ] Packaging and Installation
 - [ ] Other
-
----
-
-## How Has This Been Tested?
-
-_(Please describe the tests/commands that you ran to verify your changes)_
-
-...
 
 ---
 
