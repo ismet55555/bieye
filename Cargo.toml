@@ -3,9 +3,14 @@ authors = ["Ismet Handzic"]
 edition = "2021"
 name = "bieye"
 readme = "README.md"
-version = "0.2.0"
+version = "0.2.1"
 description = "A bionic reader for blazingly fast reading within a terminal console"
+keywords = ["bionic", "reader", "terminal", "console", "cli", "tool", "parsing"]
+categories = ["command-line-utilities", "terminal", "console", "cli", "tool", "parsing"]
 license = "GPL-3.0-or-later"
+repository = "https://github.com/ismet55555/bieye"
+documentation = "https://github.com/ismet55555/bieye"
+homepage = "https://github.com/ismet55555/bieye"
 
 [dependencies]
 clap = { version = "4.3", features = ["derive"] } # cli tool building

@@ -2,8 +2,15 @@
   <img width="350" alt="portfolio_view" src="assets/logo.png">
 </p>
 
-<br/>
+<div align="center">
 
+![GitHub Workflow Status (with event)](https://img.shields.io/github/actions/workflow/status/ismet55555/bieye/rust.yml)
+![Crates.io](https://img.shields.io/crates/v/bieye)
+![Crates.io](https://img.shields.io/crates/l/bieye)
+
+</div>
+
+<br/>
 
 This Rust-based CLI tool reads text and returns it back in bionic reading format
 for blazingly fast loading and even faster reading!
@@ -45,7 +52,6 @@ of text, which tricks the brain of reading without losing content.
   cd bieye
   cargo install --path .
   ```
-
 
 ## Usage Examples
 

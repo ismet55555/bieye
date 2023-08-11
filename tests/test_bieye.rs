@@ -4,6 +4,7 @@
 #[cfg(test)]
 #[path = "../src/bieye.rs"]
 mod bieye;
+use colored::Colorize;
 
 mod tests_bieye {
     use super::*;
@@ -76,5 +77,22 @@ mod tests_bieye {
             be.text_output,
             "\u{1b}[1;33mTES\u{1b}[0m\u{1b}[2mTING\u{1b}[0m"
         );
+    }
+
+    #[test]
+    fn test_joined_word_text() {
+        let first_part = "TES".color("yellow").bold();
+        let second_part = "TING".dimmed();
+        let test_word = format!("{}{}", first_part, second_part);
+
+        let mut be = bieye::Bieye {
+            text_input: "TESTING".to_string(),
+            is_colored: true,
+            is_dimmed: true,
+            ..Default::default()
+        };
+        be.process_text();
+
+        assert_eq!(be.text_output, test_word);
     }
 }

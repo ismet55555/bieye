@@ -33,6 +33,11 @@ jobs:
       - name: Cache build artifacts
         uses: swatinem/rust-cache@v2
 
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
+
       - name: Check terminal type - $TERM
         run: echo $TERM
 
@@ -54,11 +59,14 @@ jobs:
 
       - name: Create code coverage report with cargo-tarpaulin
         uses: actions-rs/tarpaulin@v0.1
-        # if: ${{ matrix.os == 'ubuntu-latest' }}
         with:
           version: '0.19.1'
           args: '--ignore-config --ignore-panics --ignore-tests --exclude-files src/main.rs'
           timeout: 900
+
+      # - name: Upload code coverage report to Codecov
+      #   if: ${{ matrix.os == 'ubuntu-latest' && github.event_name == 'push' }}
+      #   uses: codecov/codecov-action@v3
 
       - name: Check Run
         shell: bash

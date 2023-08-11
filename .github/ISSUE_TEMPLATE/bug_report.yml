@@ -1,0 +1,91 @@
+name: Bug Report
+description: File a bug report
+title: "[Bug]: "
+labels: ["bug", "triage"]
+assignees:
+  - ismet55555
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+        Any information you provide will help a lot!
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Also tell us, what did you expect to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction-steps
+    attributes:
+      label: How can we reproduce this?
+      placeholder: |
+        "Example: I just ran `bieye --help`, and it ported me into the matrix!"
+    validations:
+      required: true
+
+  - type: textarea
+    id: debug-output
+    attributes:
+      label: RUST_LOG=debug Output
+      description: Enter the output when running with prefix of RUST_LOG=debug
+      placeholder: >
+        Example: RUST_LOG=debug bieye "hello"
+        Paste the output here.
+        If needed remove any sensitive information.
+    validations:
+      required: false
+
+  - type: input
+    id: version
+    attributes:
+      label: Version of `bieye`
+      description: Enter the version you were using
+      placeholder: "Example: 0.0.57"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: terminal-type
+    attributes:
+      label: What type of terminal and/or terminal multiplexer were you using?
+      options:
+        - sh
+        - bash
+        - zsh
+        - fsh
+        - PowerShell
+        - Other
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: operating-systems
+    attributes:
+      label: Which operating systems were you using when this happened?
+      description: You may select more than one
+      options:
+        - label: macOS
+        - label: Windows
+        - label: Linux
+        - label: Other
+        - label: I don't know
+
+  - type: dropdown
+    id: day-check
+    attributes:
+      label: How is your day going?
+      options:
+        - Amazing!
+        - Pretty good
+        - Not bad
+        - Meh
+        - Terrible
+        - Ugh, don't remind me
+    validations:
+      required: false

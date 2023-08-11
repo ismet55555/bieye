@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION="0.2.2"
+VERSION="0.2.1"
 PPA="ppa:ismet55555/ppa"
 # DISTS=("lunar" "jammy" "focal" "bionic" "disco" "xenial")
 DISTS=("focal")
