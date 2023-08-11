@@ -47,20 +47,20 @@ impl Bieye {
     }
 
     // Color text if self.is_colored is true
-    fn color_text(&self, word: &str) -> ColoredString {
+    fn color_text(&self, text: &str) -> ColoredString {
         if self.is_colored {
-            word.yellow()
+            text.yellow()
         } else {
-            word.normal()
+            text.normal()
         }
     }
 
     // Dim text if self.is_dimmed is true
-    fn dim_text(&self, word: &str) -> ColoredString {
+    fn dim_text(&self, text: &str) -> ColoredString {
         if self.is_dimmed {
-            word.dimmed()
+            text.dimmed()
         } else {
-            word.normal()
+            text.normal()
         }
     }
 
