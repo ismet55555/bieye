@@ -1,6 +1,6 @@
 ---
 name: bieye
-version: 0.2.2
+version: 0.2.3
 summary: A bionic reader for fast reading within a terminal console
 description: >
   This CLI tool reads text and returns it back
