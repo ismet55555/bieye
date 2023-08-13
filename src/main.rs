@@ -22,9 +22,11 @@ fn main() -> Result<()> {
     // Load user input text
     if let Some(text) = _args.text {
         // Passed via command line option flag
+        debug!("Reading input from command line argument ...");
         input_text = text;
     } else {
         // Passed via stdin pipe
+        debug!("Reading input from stdin ...");
         io::stdin().read_to_string(&mut input_text)?;
         if input_text.is_empty() {
             println!("ERROR: No input received via stdin.");

@@ -10,6 +10,7 @@ const DESCRIPTION: &str = concat!(
 );
 
 #[derive(Parser, Debug)]
+#[command(arg_required_else_help(true))]
 #[clap(
     author,
     version,
