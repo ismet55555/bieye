@@ -80,6 +80,11 @@ bieye v0.0.0
 This CLI tool reads text and returns it back in bionic reading format
 for blazingly fast loading and even faster reading!
 
+Example Usages:
+   bieye "Keep on reading"
+   echo "Read faster, learn more" | bieye --dim
+   man vim | bieye --dim --color
+
 Usage: bieye [OPTIONS] [TEXT]
 
 Arguments:

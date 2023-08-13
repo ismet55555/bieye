@@ -6,7 +6,11 @@ const DESCRIPTION: &str = concat!(
     env!("CARGO_PKG_VERSION"),
     "\n\n",
     "This CLI tool reads text and returns it back in bionic reading format\n",
-    "for blazingly fast loading and even faster reading!",
+    "for blazingly fast loading and even faster reading!\n\n",
+    "Example Usages:\n",
+    "   bieye \"Keep on reading\"\n",
+    "   echo \"Read faster, learn more\" | bieye --dim\n",
+    "   man vim | bieye --dim --color",
 );
 
 #[derive(Parser, Debug)]
