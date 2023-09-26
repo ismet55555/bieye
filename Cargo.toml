@@ -13,7 +13,7 @@ documentation = "https://github.com/ismet55555/bieye"
 homepage = "https://github.com/ismet55555/bieye"
 
 [dependencies]
-clap = { version = "4.3", features = ["derive"] } # cli tool building
+clap = { version = "4.4", features = ["derive"] } # cli tool building
 color-eyre = "0.6"  # better error messages
 colored = "2.0"  # colored string output
 crossterm = "0.27"
